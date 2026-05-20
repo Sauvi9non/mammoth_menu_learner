@@ -1,0 +1,2595 @@
+{
+  "brand": "매머드 익스프레스",
+  "source": "유튜브 + 공식 메뉴 (교육 전 추정 데이터)",
+  "captured_at": "2026-05-18",
+  "disclaimer": "공식 레시피 아님. 학습용 참고 데이터. 교육 후 검증 필요.",
+  "menus": [
+    {
+      "name": "아메리카노",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "얼음",
+            "물",
+            "에스프레소 샷"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "꿀 커피",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "꿀",
+            "에스프레소 샷",
+            "물",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "카페 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "우유",
+            "에스프레소 샷",
+            "얼음",
+            "우유"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "헤이즐넛 커피",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M",
+          "steps": [
+            "헤이즐넛 파우더",
+            "헤이즐넛 시럽?",
+            "에스프레소 샷",
+            "물",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "헤이즐넛 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M",
+          "steps": [
+            "헤이즐넛 파우더",
+            "에스프레소 샷",
+            "우유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "헤이즐넛 모카",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "바나나 달달 커피",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M",
+          "steps": [
+            "바나나 파우더",
+            "연유?",
+            "에스프레소 샷",
+            "물",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "베트남 연유 커피",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M",
+          "steps": [
+            "연유",
+            "물",
+            "얼음",
+            "에스프레소 샷",
+            "연유 드리즐링"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "꿀 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "꿀",
+            "에스프레소 샷",
+            "우유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "바닐라 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "바닐라 시럽",
+            "에스프레소 샷",
+            "우유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "아몬드 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "아몬드 시럽",
+            "에스프레소 샷",
+            "우유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "골든 코코넛 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "시그니처 라떼",
+      "cat": "커피",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "카페 모카",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "초코 시럽",
+            "에스프레소 샷",
+            "우유",
+            "얼음",
+            "코코아 가루"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "믹스 커피",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "솔티드 카라멜 마키아토",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "시럽",
+            "카라멜 시럽?",
+            "우유",
+            "얼음",
+            "에스프레소 샷",
+            "카라멜 시럽 드리즐링"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "아샷추 복숭아 아이스티",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M/L",
+          "steps": [
+            "얼음",
+            "아이스티",
+            "에스프레소 샷"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "아인슈페너 커피",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "S",
+          "steps": [
+            "얼음",
+            "물",
+            "아인슈페너 크림?",
+            "코코아 가루?",
+            "에스프레소 샷",
+            "아인슈페너 크림?",
+            "코코아 가루?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "아인슈페너 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "S",
+          "steps": [
+            "얼음",
+            "우유",
+            "아인슈페너 크림?",
+            "코코아 가루?",
+            "에스프레소 샷",
+            "아인슈페너 크림?",
+            "코코아 가루?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "바닐라 크럼블 아이스크림 라떼",
+      "cat": "커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "S",
+          "steps": [
+            "우유",
+            "뭔가 시럽?",
+            "얼음",
+            "아이스크림",
+            "에스프레소 샷",
+            "크럼블",
+            "코코아 가루?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "콜드브루",
+      "cat": "콜드브루",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "콜드브루 라떼",
+      "cat": "콜드브루",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "돌체 콜드브루 라떼",
+      "cat": "콜드브루",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "연유",
+            "우유",
+            "콜드브루",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "달고나 콜드브루 라떼",
+      "cat": "콜드브루",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "레몬 토닉 콜드브루",
+      "cat": "콜드브루",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "매머드 콜드브루 원액",
+      "cat": "콜드브루",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "기타",
+          "size": "기타",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "기타"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "말차 클래식 라떼",
+      "cat": "논커피",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "딸기 라떼",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "시럽",
+            "우유",
+            "얼음",
+            "딸기청"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "고구마 라떼",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "고구마 베이스?",
+            "우유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "토피넛 라떼",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "우유",
+            "토피넛 파우더",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "초코 라떼",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "S/M/L",
+          "steps": [
+            "우유",
+            "초코 파우더",
+            "얼음",
+            "코코아 가루?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "곡물 라떼",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "시럽",
+            "곡물 파우더",
+            "두유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "로얄 밀크티",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M/L",
+          "steps": [
+            "시럽?",
+            "밀크티 베이스",
+            "우유",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "아몬드 밀크티",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M/L",
+          "steps": [
+            "밀크티 베이스",
+            "아몬드 시럽?",
+            "우유",
+            "얼음",
+            "아몬드 토핑"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "달고나 라떼",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M/L",
+          "steps": [
+            "달고나",
+            "시럽",
+            "우유",
+            "얼음",
+            "달고나 토핑"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "스팀 밀크",
+      "cat": "논커피",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "HOT ONLY",
+          "size": "S/M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "HOT ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "쌍화차",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "나주 배숙차",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "애플 모과차",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "매머드 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "L",
+          "steps": [
+            "자몽 슬라이스",
+            "레몬 슬라이스",
+            "오렌지 슬라이스",
+            "자몽청?",
+            "시럽?",
+            "얼음",
+            "사이다?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "복숭아 아이스티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M/L",
+          "steps": [
+            "얼음",
+            "아이스티"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "인크레드불",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "무슨 시럽?",
+            "어떤 시럽?",
+            "얼음",
+            "레드불"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "유자 티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "유자 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "아이스",
+          "size": "M/L",
+          "steps": [
+            "유자청",
+            "얼음",
+            "사이다"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "레몬밤 민트티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "레몬밤 시럽?",
+            "민트 시럽?",
+            "얼음",
+            "물"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "청포도 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "청포도 시럽",
+            "얼음",
+            "사이다"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "장수 오미자 티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M/L",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "장수 오미자 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "아이스",
+          "size": "M/L",
+          "steps": [
+            "오미자 시럽",
+            "얼음",
+            "사이다?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "깔라만시 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M/L",
+          "steps": [
+            "깔라만시 시럽",
+            "얼음",
+            "사이다"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "한라봉 티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "한라봉 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "한라봉청",
+            "얼음",
+            "사이다?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "청귤 티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "청귤 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "청귤청",
+            "시럽?",
+            "얼음",
+            "사이다",
+            "청귤칩"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "자몽 티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "자몽 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "자몽청",
+            "얼음",
+            "사이다?",
+            "자몽 슬라이스"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "블루레몬 티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "블루레몬 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "히비스커스 유자티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "뜨거운 물",
+            "티백",
+            "얼음",
+            "유자청"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "지리산 청매실티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "매실 원액",
+            "얼음",
+            "물"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "자몽 허니 블랙티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "오렌지 루이보스티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "애플 히비스커스티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "머스캣 그린티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "수박 주스",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "파인애플 주스",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "제로 복숭아 아이스티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M/L",
+          "steps": [
+            "무슨 시럽이야 이거",
+            "얼음",
+            "물"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "제로 체리콕 에이드",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M/L",
+          "steps": [
+            "체리 베이스?",
+            "얼음",
+            "제로 콜라"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "페퍼민트티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "캐모마일티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "얼그레이티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [
+            "뜨거운 물",
+            "티백",
+            "얼음"
+          ],
+          "note": "티백은 2분 간 우린다.",
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "레몬&오렌지(홍차)티",
+      "cat": "티/에이드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "핫",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        },
+        {
+          "temp": "아이스",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "핫",
+        "아이스"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "말차 클래식 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "딸기 쿠키 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "곡물 쉐이크",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "딸기 요거트 스무디",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "플레인 요거트 스무디",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "요거트 파우더",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "블루베리 요거트 스무디",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "밀크쉐이크",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "밀크쉐이크 파우더",
+            "뭔가 시럽?",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "딸기 밀크쉐이크",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "밀크쉐이크 파우더",
+            "뭔가 시럽?",
+            "얼음",
+            "딸기청?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "솔티드 카라멜 밀크쉐이크",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "밀크쉐이크 파우더",
+            "뭔가 시럽?",
+            "얼음",
+            "카라멜 시럽?",
+            "카라멜 시럽 드리즐링"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "피넛버터 밀크쉐이크",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "밀크쉐이크 파우더",
+            "뭔가 시럽?",
+            "피넛 버터",
+            "얼음",
+            "무언가?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "초코 밀크쉐이크",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "밀크쉐이크 파우더",
+            "뭔가 시럽?",
+            "초코 시럽",
+            "얼음",
+            "다크 컬",
+            "초코시럽",
+            "다크컬 토핑"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "리얼 망고 스무디",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "물",
+            "망고",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "리얼 배 스무디",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "물",
+            "배",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "리얼 복숭아 스무디",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "물",
+            "복숭아",
+            "얼음"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "바나나 초코칩 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "바나나 파우더",
+            "연유?",
+            "얼음",
+            "다크블로썸?",
+            "휘핑크림"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "자바칩 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "자바 파우더?",
+            "초코 시럽?",
+            "초코 청크",
+            "얼음",
+            "초코시럽?",
+            "휘핑크림",
+            "자바칩"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "피스타치오 아몬드 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "얼음",
+            "피스타치오 파우더",
+            "휘핑크림",
+            "아몬드 토핑"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "민트 초코 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "민트 초코 파우더",
+            "얼음",
+            "다크 컬?",
+            "휘핑크림",
+            "초코칩"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "오레오 초코 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "오레오 파우더",
+            "오레오",
+            "얼음",
+            "휘핑크림",
+            "오레오 토핑"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "초코 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "초코 파우더",
+            "뭔 파우더?",
+            "얼음",
+            "휘핑크림",
+            "초코 시럽 드리즐링",
+            "초코칩?"
+          ],
+          "note": null,
+          "uncertain": true
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": true
+    },
+    {
+      "name": "콜드브루 커피 프라페",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [
+            "우유",
+            "콜드브루",
+            "커피 파우더",
+            "얼음",
+            "시럽"
+          ],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": true,
+      "has_uncertain": false
+    },
+    {
+      "name": "포도 사과 젤리 크러쉬",
+      "cat": "프라페/블렌디드",
+      "is_new": false,
+      "is_discontinuing": true,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "말차 제주 레몬 크러쉬",
+      "cat": "프라페/블렌디드",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "말차 딸기 라떼",
+      "cat": "논커피",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "말차 클라우드 블루 코코넛 라떼",
+      "cat": "논커피",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    },
+    {
+      "name": "말차 클라우드 블루 코코넛 워터",
+      "cat": "티/에이드",
+      "is_new": true,
+      "is_discontinuing": false,
+      "variants": [
+        {
+          "temp": "ICE ONLY",
+          "size": "M",
+          "steps": [],
+          "note": null,
+          "uncertain": false
+        }
+      ],
+      "temps": [
+        "ICE ONLY"
+      ],
+      "has_recipe": false,
+      "has_uncertain": false
+    }
+  ]
+}
