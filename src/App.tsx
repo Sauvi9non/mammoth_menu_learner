@@ -1,15 +1,13 @@
 import { useMemo, useState } from "react";
-import mammothMenuRaw from "./data/mammoth_menu.json";
 import CategoryTabs from "./components/CategoryTabs";
 import DetailModal from "./components/DetailModal";
 import LLMChat from "./components/LLMChat";
 import MenuCard from "./components/MenuCard";
 import QuizMode from "./components/QuizMode";
 import SearchBar from "./components/SearchBar";
+import { useMenus } from "./hooks/useMenus";
 import type { Menu } from "./types";
 import { renderStepLabel } from "./utils";
-
-const MENUS = mammothMenuRaw.menus as Menu[];
 
 type Tab = "browser" | "quiz" | "chat";
 
@@ -20,6 +18,7 @@ const TABS: { id: Tab; label: string }[] = [
 ];
 
 function App() {
+  const { menus, loading, error } = useMenus();
   const [tab, setTab] = useState<Tab>("browser");
   const [cat, setCat] = useState("전체");
   const [q, setQ] = useState("");
@@ -27,7 +26,7 @@ function App() {
 
   const filtered = useMemo(
     () =>
-      MENUS.filter((menu) => {
+      menus.filter((menu) => {
         if (cat !== "전체" && menu.cat !== cat) {
           return false;
         }
@@ -44,14 +43,30 @@ function App() {
           )
         );
       }),
-    [cat, q],
+    [menus, cat, q],
   );
 
   const stats = useMemo(() => {
-    const total = MENUS.length;
-    const withR = MENUS.filter((menu) => menu.has_recipe).length;
-    return { total, withR, pct: Math.round((withR / total) * 100) };
-  }, []);
+    const total = menus.length;
+    const withR = menus.filter((menu) => menu.has_recipe).length;
+    return { total, withR, pct: total ? Math.round((withR / total) * 100) : 0 };
+  }, [menus]);
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-mammoth-bg">
+        <p className="text-mammoth-sub text-sm">메뉴 불러오는 중...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-mammoth-bg">
+        <p className="text-mammoth-warn text-sm">데이터를 불러오지 못했어요: {error.message}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-mammoth-bg text-mammoth-ink">
@@ -88,7 +103,7 @@ function App() {
         {tab === "browser" && (
           <div className="grid gap-4">
             <SearchBar value={q} onChange={setQ} />
-            <CategoryTabs selected={cat} onChange={setCat} menus={MENUS} />
+            <CategoryTabs selected={cat} onChange={setCat} menus={menus} />
             <div className="text-sm text-mammoth-sub">{filtered.length}개 메뉴</div>
 
             <div className="grid gap-3 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
@@ -105,9 +120,9 @@ function App() {
           </div>
         )}
 
-        {tab === "quiz" && <QuizMode menus={MENUS} />}
+        {tab === "quiz" && <QuizMode menus={menus} />}
 
-        {tab === "chat" && <LLMChat menus={MENUS} />}
+        {tab === "chat" && <LLMChat menus={menus} />}
       </div>
 
       <DetailModal key={sel?.name ?? "detail-modal"} m={sel} onClose={() => setSel(null)} />

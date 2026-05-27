@@ -24,6 +24,8 @@ export type Menu = {
   temps: string[];
   has_recipe: boolean;
   has_uncertain: boolean;
+  verified?: boolean;   // 실측 레시피 확인 여부
+  updated_at?: string;  // ISO 날짜 문자열
 };
 
 export type MenuData = {
