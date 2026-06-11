@@ -20,8 +20,10 @@ type EditableVariant = {
   temp: "아이스" | "핫";
   sizes: string[];
   steps: EditableStep[];
+  verified: boolean;
   saving: boolean;
   deleting: boolean;
+  togglingVerified: boolean;
 };
 
 // ─── Converters ──────────────────────────────────────────────────────────────
@@ -183,6 +185,7 @@ interface VariantSectionProps {
   onMoveStep: (key: string, dir: -1 | 1) => void;
   onRemoveStep: (key: string) => void;
   onAddStep: (type: "ingredient" | "action") => void;
+  onToggleVerified: () => void;
   onSave: () => void;
   onDelete: () => void;
 }
@@ -194,6 +197,7 @@ function VariantSection({
   onMoveStep,
   onRemoveStep,
   onAddStep,
+  onToggleVerified,
   onSave,
   onDelete,
 }: VariantSectionProps) {
@@ -222,6 +226,20 @@ function VariantSection({
             미저장
           </span>
         ) : null}
+        {variant.id && (
+          <button
+            type="button"
+            onClick={onToggleVerified}
+            disabled={variant.togglingVerified}
+            className={`rounded-full px-3 py-0.5 text-xs font-semibold transition disabled:opacity-50 ${
+              variant.verified
+                ? "bg-green-100 text-green-700 hover:bg-green-200"
+                : "bg-mammoth-warnBg text-mammoth-warn hover:bg-mammoth-warnBg/80"
+            }`}
+          >
+            {variant.verified ? "실측 확인" : "실측 미확인"}
+          </button>
+        )}
 
         {/* Size toggles */}
         <div className="flex gap-1.5 ml-auto">
@@ -328,11 +346,11 @@ export default function RecipeEditor({ menu, onClose, onSaved }: Props) {
   useEffect(() => {
     supabase
       .from("variants")
-      .select("id, temp, sizes, steps")
+      .select("id, temp, sizes, steps, verified")
       .eq("menu_id", menu.id)
       .then(({ data }) => {
         const existing = (data ?? []) as {
-          id: string; temp: string; sizes: string[]; steps: DbVariantStep[];
+          id: string; temp: string; sizes: string[]; steps: DbVariantStep[]; verified: boolean;
         }[];
 
         setVariants(
@@ -343,10 +361,14 @@ export default function RecipeEditor({ menu, onClose, onSaved }: Props) {
                 id: found.id, temp,
                 sizes: found.sizes ?? ["S", "M", "L"],
                 steps: (found.steps ?? []).map(fromDbStep),
-                saving: false, deleting: false,
+                verified: found.verified ?? false,
+                saving: false, deleting: false, togglingVerified: false,
               };
             }
-            return { id: null, temp, sizes: ["S", "M", "L"], steps: [], saving: false, deleting: false };
+            return {
+              id: null, temp, sizes: ["S", "M", "L"], steps: [],
+              verified: false, saving: false, deleting: false, togglingVerified: false,
+            };
           })
         );
         setLoading(false);
@@ -394,6 +416,18 @@ export default function RecipeEditor({ menu, onClose, onSaved }: Props) {
         .single();
       patchVariant(v.temp, { saving: false, id: data?.id ?? null });
     }
+    onSaved();
+  }
+
+  async function toggleVerified(v: EditableVariant) {
+    if (!v.id) return;
+    const next = !v.verified;
+    patchVariant(v.temp, { togglingVerified: true });
+    await supabase
+      .from("variants")
+      .update({ verified: next, verified_at: next ? new Date().toISOString() : null })
+      .eq("id", v.id);
+    patchVariant(v.temp, { verified: next, togglingVerified: false });
     onSaved();
   }
 
@@ -455,6 +489,7 @@ export default function RecipeEditor({ menu, onClose, onSaved }: Props) {
                     )
                   )
                 }
+                onToggleVerified={() => void toggleVerified(v)}
                 onSave={() => void saveVariant(v)}
                 onDelete={() => {
                   if (confirm(`${v.temp} 레시피를 삭제할까요?`)) void deleteVariant(v);
