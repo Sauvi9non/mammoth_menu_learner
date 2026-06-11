@@ -1,68 +1,44 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
-import type { DbMenu, Menu, StepItem, Variant } from "../types";
+import type { DbMenu, DbVariant, DbVariantStep, Menu, StepItem, Variant } from "../types";
 
 const MENUS_QUERY = `
   id, name, status, price, is_popular, brand,
   menu_categories!inner ( name ),
-  base_recipes (
-    id, default_temp, default_size, default_cup, verified, verified_at, note,
-    recipe_steps (
-      id, order_num, amount, duration, note,
-      ingredients ( id, name, category ),
-      actions ( id, name )
-    )
-  ),
-  option_diffs ( id, option_type, option_value, diff_steps, diff_note )
+  variants ( id, temp, sizes, steps, verified, verified_at, note )
 ` as const;
 
-function dbToMenu(raw: DbMenu): Menu {
-  const base = raw.base_recipes?.[0] ?? null;
+// amount가 사이즈별 객체면 "S:1샷 / M:2샷 / L:3샷" 형태로 표시
+function formatAmount(amount: string | Record<string, string> | undefined): string | undefined {
+  if (!amount) return undefined;
+  if (typeof amount === "string") return amount;
+  return Object.entries(amount).map(([s, v]) => `${s}:${v}`).join(" / ");
+}
 
-  const baseSteps: StepItem[] = base
-    ? [...(base.recipe_steps ?? [])]
-        .sort((a, b) => a.order_num - b.order_num)
-        .map((s): StepItem | null => {
-          if (s.ingredients) return s.amount ? { item: s.ingredients.name, amount: s.amount } : s.ingredients.name;
-          if (s.actions) return s.actions.name;
-          return null;
-        })
-        .filter((s): s is StepItem => s !== null)
-    : [];
-
-  const baseVariant: Variant | null = base
-    ? {
-        temp: base.default_temp ?? "기본",
-        size: base.default_size ?? "",
-        steps: baseSteps,
-        note: base.note ?? null,
-        uncertain: false,
-      }
-    : null;
-
-  const diffVariants: Variant[] = (raw.option_diffs ?? []).map((d) => {
-    // "핫_M" → temp="핫", size="M"
-    if (d.option_type === "variant") {
-      const [temp, size] = d.option_value.split("_");
-      return {
-        temp: temp ?? base?.default_temp ?? "기본",
-        size: size ?? base?.default_size ?? "",
-        steps: d.diff_steps ?? [],
-        note: d.diff_note ?? null,
-        uncertain: false,
-      };
+function stepsToStepItems(steps: DbVariantStep[]): StepItem[] {
+  return steps.map((s): StepItem => {
+    if ("ingredient" in s) {
+      const amt = formatAmount(s.amount);
+      return amt ? { item: s.ingredient, amount: amt } : s.ingredient;
     }
-    return {
-      temp: d.option_type === "temp" ? d.option_value : (base?.default_temp ?? "기본"),
-      size: d.option_type === "size" ? d.option_value : (base?.default_size ?? ""),
-      steps: d.diff_steps ?? [],
-      note: d.diff_note ?? null,
-      uncertain: false,
-    };
+    return s.action;
   });
+}
 
-  const variants = [...(baseVariant ? [baseVariant] : []), ...diffVariants];
-  const temps = [...new Set(variants.map((v) => v.temp))];
+function dbVariantToVariant(v: DbVariant): Variant {
+  return {
+    temp: v.temp,
+    size: (v.sizes ?? []).join("/"),
+    steps: stepsToStepItems(v.steps ?? []),
+    note: v.note ?? null,
+    uncertain: false,
+  };
+}
+
+function dbToMenu(raw: DbMenu): Menu {
+  const variants = (raw.variants ?? []).map(dbVariantToVariant);
+  const temps = (raw.variants ?? []).map((v) => v.temp);
+  const allVerified = (raw.variants ?? []).length > 0 && (raw.variants ?? []).every((v) => v.verified);
 
   return {
     id: raw.id,
@@ -72,10 +48,9 @@ function dbToMenu(raw: DbMenu): Menu {
     is_discontinuing: raw.status === "단종예정" || raw.status === "단종",
     variants,
     temps,
-    has_recipe: baseSteps.length > 0,
+    has_recipe: (raw.variants ?? []).some((v) => (v.steps ?? []).length > 0),
     has_uncertain: false,
-    verified: base?.verified ?? false,
-    base_recipe_id: base?.id ?? null,
+    verified: allVerified,
   };
 }
 

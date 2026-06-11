@@ -11,14 +11,14 @@ export type StepItem =
 
 export type Variant = {
   temp: string;
-  size: string;
+  size: string;   // 제공 사이즈 목록, 예: "S/M/L"
   steps: StepItem[];
   note: string | null;
   uncertain: boolean;
 };
 
 export type Menu = {
-  id: string;           // menus.id (UUID)
+  id: string;
   name: string;
   cat: string;
   is_new: boolean;
@@ -27,42 +27,24 @@ export type Menu = {
   temps: string[];
   has_recipe: boolean;
   has_uncertain: boolean;
-  verified?: boolean;
-  base_recipe_id?: string | null;   // base_recipes.id (verified 토글용)
+  verified?: boolean;   // 모든 variants가 verified일 때 true
 };
 
 // ── DB 타입 (Supabase 응답 그대로) ────────────────────────────────────────
 
-export type DbIngredient = { id: string; name: string; category: string | null };
-export type DbAction     = { id: string; name: string };
+// variants.steps 각 항목
+export type DbVariantStep =
+  | { ingredient: string; amount?: string | Record<string, string> }
+  | { action: string };
 
-export type DbRecipeStep = {
+export type DbVariant = {
   id: string;
-  order_num: number;
-  amount: string | null;
-  duration: number | null;
-  note: string | null;
-  ingredients: DbIngredient | null;
-  actions: DbAction | null;
-};
-
-export type DbBaseRecipe = {
-  id: string;
-  default_temp: string | null;
-  default_size: string | null;
-  default_cup: string | null;
+  temp: "아이스" | "핫";
+  sizes: string[];
+  steps: DbVariantStep[];
   verified: boolean;
   verified_at: string | null;
   note: string | null;
-  recipe_steps: DbRecipeStep[];
-};
-
-export type DbOptionDiff = {
-  id: string;
-  option_type: string;
-  option_value: string;
-  diff_steps: StepItem[];
-  diff_note: string | null;
 };
 
 export type DbMenu = {
@@ -70,9 +52,8 @@ export type DbMenu = {
   name: string;
   status: "상시" | "신메뉴" | "단종예정" | "단종" | "품절";
   price: number | null;
-  is_popular: boolean;
+  is_popular: number;
   brand: string | null;
   menu_categories: { name: string };
-  base_recipes: DbBaseRecipe[];
-  option_diffs: DbOptionDiff[];
+  variants: DbVariant[];
 };

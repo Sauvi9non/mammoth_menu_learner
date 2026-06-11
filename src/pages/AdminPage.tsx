@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../hooks/useAuth";
-import type { DbMenu, Menu } from "../types";
+import RecipeEditor from "../components/RecipeEditor";
+import type { Menu } from "../types";
 
 // ---------- supabase helpers ----------
 
 const MENUS_QUERY = `
   id, name, status, is_popular,
   menu_categories!inner ( name ),
-  base_recipes ( id, verified )
+  variants ( id, verified )
 ` as const;
 
 async function fetchMenus(): Promise<Menu[]> {
@@ -18,8 +19,8 @@ async function fetchMenus(): Promise<Menu[]> {
     .order("name");
   if (error) throw new Error(error.message);
 
-  return (data as unknown as DbMenu[]).map((raw) => {
-    const base = raw.base_recipes?.[0] ?? null;
+  return (data as any[]).map((raw) => {
+    const vs: { id: string; verified: boolean }[] = raw.variants ?? [];
     return {
       id: raw.id,
       name: raw.name,
@@ -30,8 +31,7 @@ async function fetchMenus(): Promise<Menu[]> {
       temps: [],
       has_recipe: false,
       has_uncertain: false,
-      verified: base?.verified ?? false,
-      base_recipe_id: base?.id ?? null,
+      verified: vs.length > 0 && vs.every((v) => v.verified),
     };
   });
 }
@@ -40,11 +40,12 @@ async function deleteMenu(menuId: string) {
   await supabase.from("menus").delete().eq("id", menuId);
 }
 
-async function setVerified(baseRecipeId: string, verified: boolean) {
+// 메뉴의 모든 variants를 한 번에 verified 토글
+async function toggleAllVariants(menuId: string, verified: boolean) {
   await supabase
-    .from("base_recipes")
+    .from("variants")
     .update({ verified, verified_at: verified ? new Date().toISOString() : null })
-    .eq("id", baseRecipeId);
+    .eq("menu_id", menuId);
 }
 
 // ---------- AdminPage ----------
@@ -56,6 +57,7 @@ export default function AdminPage() {
   const [loaded, setLoaded] = useState(false);
   const [filter, setFilter] = useState<"all" | "unverified">("all");
   const [cat, setCat] = useState("전체");
+  const [editingMenu, setEditingMenu] = useState<Menu | null>(null);
 
   async function loadMenus() {
     setDataLoading(true);
@@ -67,13 +69,10 @@ export default function AdminPage() {
     }
   }
 
-  async function toggleVerified(menu: Menu) {
-    if (!menu.base_recipe_id) return;
+  async function handleToggleVerified(menu: Menu) {
     const next = !menu.verified;
-    await setVerified(menu.base_recipe_id, next);
-    setMenus((prev) =>
-      prev.map((m) => (m.id === menu.id ? { ...m, verified: next } : m))
-    );
+    await toggleAllVariants(menu.id, next);
+    setMenus((prev) => prev.map((m) => (m.id === menu.id ? { ...m, verified: next } : m)));
   }
 
   if (authLoading) {
@@ -108,6 +107,14 @@ export default function AdminPage() {
   });
 
   return (
+    <>
+    {editingMenu && (
+      <RecipeEditor
+        menu={editingMenu}
+        onClose={() => setEditingMenu(null)}
+        onSaved={() => void loadMenus()}
+      />
+    )}
     <div className="min-h-screen bg-mammoth-bg">
       <div className="mx-auto max-w-4xl px-5 py-8">
         {/* 헤더 */}
@@ -117,9 +124,7 @@ export default function AdminPage() {
             <p className="text-sm text-mammoth-sub mt-0.5">{user.email}</p>
           </div>
           <div className="flex items-center gap-3">
-            <a href="/" className="text-sm text-mammoth-sub hover:text-mammoth-ink transition">
-              ← 앱으로
-            </a>
+            <a href="/" className="text-sm text-mammoth-sub hover:text-mammoth-ink transition">← 앱으로</a>
             <button
               type="button"
               onClick={() => void logout()}
@@ -148,38 +153,20 @@ export default function AdminPage() {
               <div className="rounded-2xl bg-white border border-mammoth-line px-5 py-3">
                 <p className="text-xs text-mammoth-sub">실측 확인</p>
                 <p className="text-xl font-extrabold text-mammoth-brand">
-                  {verifiedCount}{" "}
-                  <span className="text-sm font-normal text-mammoth-sub">/ {menus.length}</span>
+                  {verifiedCount} <span className="text-sm font-normal text-mammoth-sub">/ {menus.length}</span>
                 </p>
               </div>
               <div className="flex gap-2 ml-auto">
-                <button
-                  type="button"
-                  onClick={() => setFilter("all")}
-                  className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
-                    filter === "all"
-                      ? "bg-mammoth-brand text-white"
-                      : "border border-mammoth-line text-mammoth-sub hover:bg-white"
-                  }`}
-                >
+                <button type="button" onClick={() => setFilter("all")}
+                  className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${filter === "all" ? "bg-mammoth-brand text-white" : "border border-mammoth-line text-mammoth-sub hover:bg-white"}`}>
                   전체 {menus.length}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setFilter("unverified")}
-                  className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
-                    filter === "unverified"
-                      ? "bg-mammoth-brand text-white"
-                      : "border border-mammoth-line text-mammoth-sub hover:bg-white"
-                  }`}
-                >
+                <button type="button" onClick={() => setFilter("unverified")}
+                  className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${filter === "unverified" ? "bg-mammoth-brand text-white" : "border border-mammoth-line text-mammoth-sub hover:bg-white"}`}>
                   미확인 {menus.length - verifiedCount}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => void loadMenus()}
-                  className="rounded-full border border-mammoth-line px-4 py-1.5 text-sm text-mammoth-sub hover:bg-white transition"
-                >
+                <button type="button" onClick={() => void loadMenus()}
+                  className="rounded-full border border-mammoth-line px-4 py-1.5 text-sm text-mammoth-sub hover:bg-white transition">
                   새로고침
                 </button>
               </div>
@@ -188,16 +175,8 @@ export default function AdminPage() {
             {/* 카테고리 탭 */}
             <div className="mb-3 flex flex-wrap gap-2">
               {cats.map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => setCat(c)}
-                  className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-                    cat === c
-                      ? "bg-mammoth-brand text-white"
-                      : "border border-mammoth-line text-mammoth-sub hover:bg-white"
-                  }`}
-                >
+                <button key={c} type="button" onClick={() => setCat(c)}
+                  className={`rounded-full px-3 py-1 text-xs font-semibold transition ${cat === c ? "bg-mammoth-brand text-white" : "border border-mammoth-line text-mammoth-sub hover:bg-white"}`}>
                   {c} {c === "전체" ? menus.length : menus.filter((m) => m.cat === c).length}
                 </button>
               ))}
@@ -211,41 +190,44 @@ export default function AdminPage() {
                     <th className="px-4 py-3 text-left font-semibold text-mammoth-sub">메뉴명</th>
                     <th className="px-3 py-3 text-left font-semibold text-mammoth-sub">카테고리</th>
                     <th className="px-3 py-3 text-center font-semibold text-mammoth-sub">상태</th>
+                    <th className="px-3 py-3 text-center font-semibold text-mammoth-sub">레시피</th>
                     <th className="px-3 py-3 text-center font-semibold text-mammoth-sub">실측</th>
                     <th className="px-3 py-3 text-center font-semibold text-mammoth-sub">삭제</th>
                   </tr>
                 </thead>
                 <tbody>
                   {shown.map((menu) => (
-                    <tr
-                      key={menu.id}
-                      className="border-b border-mammoth-line last:border-0 hover:bg-mammoth-bg/40 transition"
-                    >
+                    <tr key={menu.id} className="border-b border-mammoth-line last:border-0 hover:bg-mammoth-bg/40 transition">
                       <td className="px-4 py-3 font-medium text-mammoth-ink">{menu.name}</td>
                       <td className="px-3 py-3 text-mammoth-sub">{menu.cat}</td>
                       <td className="px-3 py-3 text-center">
                         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
                           menu.is_new ? "bg-mammoth-newBg text-mammoth-new" :
                           menu.is_discontinuing ? "bg-mammoth-discBg text-mammoth-disc" :
-                          "text-mammoth-sub"
-                        }`}>
+                          "text-mammoth-sub"}`}>
                           {menu.is_new ? "신메뉴" : menu.is_discontinuing ? "단종예정" : "상시"}
                         </span>
                       </td>
                       <td className="px-3 py-3 text-center">
                         <button
                           type="button"
-                          onClick={() => void toggleVerified(menu)}
-                          disabled={!menu.base_recipe_id}
+                          onClick={() => setEditingMenu(menu)}
+                          className="rounded-full border border-mammoth-line px-3 py-0.5 text-xs font-semibold text-mammoth-sub hover:bg-mammoth-brand hover:text-white hover:border-mammoth-brand transition"
+                        >
+                          편집
+                        </button>
+                      </td>
+                      <td className="px-3 py-3 text-center">
+                        <button
+                          type="button"
+                          onClick={() => void handleToggleVerified(menu)}
                           className={`rounded-full px-3 py-0.5 text-xs font-semibold transition ${
                             menu.verified
                               ? "bg-green-100 text-green-700 hover:bg-green-200"
-                              : menu.base_recipe_id
-                              ? "bg-mammoth-warnBg text-mammoth-warn hover:bg-mammoth-warnBg/80"
-                              : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                              : "bg-mammoth-warnBg text-mammoth-warn hover:bg-mammoth-warnBg/80"
                           }`}
                         >
-                          {menu.verified ? "확인" : menu.base_recipe_id ? "미확인" : "레시피없음"}
+                          {menu.verified ? "확인" : "미확인"}
                         </button>
                       </td>
                       <td className="px-3 py-3 text-center">
@@ -270,5 +252,6 @@ export default function AdminPage() {
         )}
       </div>
     </div>
+    </>
   );
 }

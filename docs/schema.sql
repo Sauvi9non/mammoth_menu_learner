@@ -38,7 +38,7 @@ CREATE TABLE public.menus (
   status      text        NOT NULL DEFAULT '상시'
                           CHECK (status IN ('상시', '신메뉴', '단종예정', '단종', '품절')),
   price       integer,
-  is_popular  boolean     NOT NULL DEFAULT false,
+  is_popular  smallint    NOT NULL DEFAULT 1 CHECK (is_popular BETWEEN 1 AND 5),
   brand       text,
   created_at  timestamptz DEFAULT now() NOT NULL,
   updated_at  timestamptz DEFAULT now() NOT NULL
@@ -47,9 +47,6 @@ CREATE TABLE public.menus (
 CREATE TRIGGER trg_menus_updated_at
   BEFORE UPDATE ON public.menus
   FOR EACH ROW EXECUTE FUNCTION update_updated_at();
-
--- category 삭제 시 menus가 있으면 막힘(RESTRICT).
--- menus 자체 삭제 시 아래 하위 테이블들은 CASCADE.
 
 
 -- -------------------------------------------------------------
@@ -76,7 +73,7 @@ CREATE TRIGGER trg_ingredients_updated_at
 CREATE TABLE public.actions (
   id               uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
   name             text        NOT NULL UNIQUE,
-  default_duration integer,                    -- 초 단위, 게임 확장용
+  default_duration text,
   icon             text,
   created_at       timestamptz DEFAULT now() NOT NULL,
   updated_at       timestamptz DEFAULT now() NOT NULL
@@ -88,74 +85,35 @@ CREATE TRIGGER trg_actions_updated_at
 
 
 -- -------------------------------------------------------------
--- 5. base_recipes  (메뉴 1개당 베이스 레시피 1개)
+-- 5. variants  (온도별 레시피 — 사이즈는 steps 내 amount로 표현)
+--
+-- steps jsonb 형식:
+--   재료(고정량):   { "ingredient": "얼음" }
+--   재료(사이즈별): { "ingredient": "에스프레소샷", "amount": {"S":"1샷","M":"2샷","L":"3샷"} }
+--   재료(단일량):   { "ingredient": "설탕시럽", "amount": "10ml" }
+--   행동:           { "action": "젓기" }
 -- -------------------------------------------------------------
-CREATE TABLE public.base_recipes (
-  id           uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
-  menu_id      uuid        NOT NULL REFERENCES public.menus(id) ON DELETE CASCADE,
-  default_temp text,                           -- 예: '아이스', '핫'
-  default_size text,                           -- 예: 'M'
-  default_cup  text,                           -- 예: '플라스틱컵', '머그'
-  verified     boolean     NOT NULL DEFAULT false,
-  verified_at  timestamptz,
-  note         text,
-  created_at   timestamptz DEFAULT now() NOT NULL,
-  updated_at   timestamptz DEFAULT now() NOT NULL
+CREATE TABLE public.variants (
+  id          uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
+  menu_id     uuid        NOT NULL REFERENCES public.menus(id) ON DELETE CASCADE,
+  temp        text        NOT NULL CHECK (temp IN ('아이스', '핫')),
+  sizes       text[]      NOT NULL DEFAULT '{S,M,L}',
+  steps       jsonb       NOT NULL DEFAULT '[]',
+  verified    boolean     NOT NULL DEFAULT false,
+  verified_at timestamptz,
+  note        text,
+  created_at  timestamptz DEFAULT now() NOT NULL,
+  updated_at  timestamptz DEFAULT now() NOT NULL,
+  UNIQUE (menu_id, temp)
 );
 
-CREATE TRIGGER trg_base_recipes_updated_at
-  BEFORE UPDATE ON public.base_recipes
+CREATE TRIGGER trg_variants_updated_at
+  BEFORE UPDATE ON public.variants
   FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 
 
 -- -------------------------------------------------------------
--- 6. recipe_steps  (베이스 레시피 단계)
--- -------------------------------------------------------------
-CREATE TABLE public.recipe_steps (
-  id             uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
-  base_recipe_id uuid        NOT NULL REFERENCES public.base_recipes(id) ON DELETE CASCADE,
-  order_num      integer     NOT NULL,
-  ingredient_id  uuid        REFERENCES public.ingredients(id) ON DELETE SET NULL,
-  action_id      uuid        REFERENCES public.actions(id) ON DELETE SET NULL,
-  amount         text,                         -- 예: 'C선까지', '1샷'
-  duration       integer,                      -- 초 단위 (행동에만 의미 있음)
-  note           text,
-  created_at     timestamptz DEFAULT now() NOT NULL,
-  updated_at     timestamptz DEFAULT now() NOT NULL,
-
-  -- 재료와 행동 중 정확히 하나만 연결
-  CONSTRAINT chk_recipe_steps_xor CHECK (
-    (ingredient_id IS NOT NULL AND action_id IS NULL) OR
-    (ingredient_id IS NULL     AND action_id IS NOT NULL)
-  )
-);
-
-CREATE TRIGGER trg_recipe_steps_updated_at
-  BEFORE UPDATE ON public.recipe_steps
-  FOR EACH ROW EXECUTE FUNCTION update_updated_at();
-
-
--- -------------------------------------------------------------
--- 7. option_diffs  (베이스 대비 옵션별 차이)
--- -------------------------------------------------------------
-CREATE TABLE public.option_diffs (
-  id           uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
-  menu_id      uuid        NOT NULL REFERENCES public.menus(id) ON DELETE CASCADE,
-  option_type  text        NOT NULL,           -- 예: 'temp', 'size'
-  option_value text        NOT NULL,           -- 예: '핫', 'L'
-  diff_steps   jsonb       NOT NULL DEFAULT '[]',
-  diff_note    text,
-  created_at   timestamptz DEFAULT now() NOT NULL,
-  updated_at   timestamptz DEFAULT now() NOT NULL
-);
-
-CREATE TRIGGER trg_option_diffs_updated_at
-  BEFORE UPDATE ON public.option_diffs
-  FOR EACH ROW EXECUTE FUNCTION update_updated_at();
-
-
--- -------------------------------------------------------------
--- 8. guides  (운영 지침 — 메뉴 DB 완성 후 추가 예정)
+-- 6. guides  (운영 지침 — 메뉴 DB 완성 후 추가 예정)
 -- -------------------------------------------------------------
 CREATE TABLE public.guides (
   id         uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
